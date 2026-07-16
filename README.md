@@ -47,14 +47,14 @@ La décision d'éclairage est **entièrement locale** : la boucle de commande PW
 
 <div align="center">
   <img src="images/nuit_sans_mouvement.png" width="500" alt="Nuit sans mouvement - LED à 40%">
-  <br><em>Figure 33 — Nuit sans détection de mouvement : LED1 à 40% (veille), LED2 éteinte</em>
+  <br><em>Nuit sans détection de mouvement : LED1 à 40% (veille), LED2 éteinte</em>
 </div>
 
 <br>
 
 <div align="center">
   <img src="images/nuit_avec_mouvement.png" width="500" alt="Nuit avec mouvement - LED à 100%">
-  <br><em>Figure 34 — Nuit avec détection de mouvement : luminosité portée à 100%</em>
+  <br><em>Nuit avec détection de mouvement : luminosité portée à 100%</em>
 </div>
 
 ## 🎬 Vidéo de démonstration
