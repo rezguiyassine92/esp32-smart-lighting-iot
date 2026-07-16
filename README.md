@@ -16,11 +16,15 @@
 
 ---
 
-## 📋 En bref
+## 📋 Vue d'ensemble
 
-Un lampadaire public fonctionne à la même puissance à 3h du matin dans une rue vide qu'à 21h en heure de pointe. Ce projet répond à ce constat avec un nœud IoT autonome basé sur ESP32 : la luminosité de la LED s'adapte en temps réel à la lumière ambiante, à la présence humaine et aux conditions météo — entièrement en local, sans configuration à distance nécessaire.
+Nœud IoT autonome basé sur ESP32 pour l'éclairage public adaptatif. Contrairement à un lampadaire classique qui fonctionne à puissance fixe, ce système ajuste la luminosité de la LED en temps réel selon trois critères combinés :
 
-Les données des capteurs pilotent directement la commande PWM. Le cloud et le dashboard viennent en complément, pour la supervision et le contrôle à distance — pas pour la boucle de décision principale.
+- **Lumière ambiante** (LDR) — pas d'éclairage inutile en plein jour
+- **Présence humaine** (PIR) — puissance renforcée uniquement quand quelqu'un est présent
+- **Conditions météo** (DHT22) — priorité à la sécurité en cas de brouillard ou de brume
+
+La décision d'éclairage est **entièrement locale** : la boucle de commande PWM tourne directement sur l'ESP32, sans dépendance réseau. Le cloud (Firebase) et le dashboard (Node-RED) n'interviennent qu'en complément, pour la supervision et le contrôle à distance — jamais dans le chemin critique de décision.
 
 | | |
 |---|---|
@@ -43,15 +47,20 @@ Les données des capteurs pilotent directement la commande PWM. Le cloud et le d
 
 <div align="center">
   <img src="images/nuit_sans_mouvement.png" width="500" alt="Nuit sans mouvement - LED à 40%">
-  <br><em>Figure 33 — Nuit sans détection de mouvement : LED1 à 40% (veille), LED2 éteinte</em>
+  <br><em>Nuit sans détection de mouvement : LED1 à 40% (veille), LED2 éteinte</em>
 </div>
 
 <br>
 
 <div align="center">
   <img src="images/nuit_avec_mouvement.png" width="500" alt="Nuit avec mouvement - LED à 100%">
-  <br><em>Figure 34 — Nuit avec détection de mouvement : luminosité portée à 100%</em>
+  <br><em>Nuit avec détection de mouvement : luminosité portée à 100%</em>
 </div>
+
+## 🎬 Vidéo de démonstration
+
+- [Démo du système en fonctionnement](https://www.youtube.com/watch?v=EHpKnXJo-uQ)
+- [Simulation Wokwi + supervision Firebase / Node-RED](https://www.youtube.com/watch?v=fqYFnJnT2C4)
 
 ## 🧠 Logique d'éclairage
 
@@ -220,6 +229,3 @@ Le même firmware tourne dans Wokwi sans matériel physique. Régler `WIFI_SSID 
 
 `ESP32` · `C++ (Arduino)` · `Firebase Realtime Database` · `Node-RED` · `PWM` · `DHT22` · `LDR` · `PIR` · `Wokwi` · `IoT`
 
-## 📄 License
-
-MIT
